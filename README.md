@@ -1,0 +1,2 @@
+# 10KSentimentBA
+ Bachelorarbeit Skripte
