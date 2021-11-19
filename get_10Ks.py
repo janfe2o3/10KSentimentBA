@@ -4,7 +4,7 @@ import requests
 import os
 from pathlib import Path
 from requests.models import HTTPError
-import locations
+import settings
 from get_cik_jsons import longCIK
 
 """This script downloads all 10ks from the submission jsons and saves the result in download_report.csv"""
@@ -16,7 +16,7 @@ heads = {
 
 def get_files():
     paths=[]
-    root = locations.json_path                        #Setting download path as root folder to search in
+    root = settings.json_path                        #Setting download path as root folder to search in
     for path, subdirs, files in os.walk(root):              #Iterating over all files in root
         for name in files:
             if name.endswith('.json'):                      
@@ -29,7 +29,7 @@ def get_filings(path):
         accessionNumber = df['accessionNumber'].replace('-','')
         primaryDocument = df['primaryDocument']
         reportDate=df['reportDate']
-        down_direct = locations.tenk_path
+        down_direct = settings.tenk_path
         path_filing=f'{down_direct}/{ticker}/{reportDate}.htm'         #Creating dwonload path for filing
         if os.path.exists(path_filing) == False:                       #check if filing is already downloaded
             try:
@@ -95,5 +95,5 @@ if __name__ == '__main__':
 
     final_df= pd.concat(df_list)                            #Adding filing from all companies together
     print(final_df)
-    final_df =pd.read_csv(locations.csv_path+'/download_report.csv', sep=";")
+    final_df.to_csv(settings.csv_path+'/download_report.csv', sep=";")         #CSV summary table
     print(final_df)
