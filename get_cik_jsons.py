@@ -1,7 +1,7 @@
 import pandas as pd
 import requests
 from os import path, makedirs
-import locations
+import settings
 
 """This file gets a list with all current SP500 companies and downloads the submission history for all companies"""
 
@@ -18,7 +18,7 @@ def download(CIK):
         response.raise_for_status()
         #download_path = r"C:/Users/janro/Uni/SEC/JSONs"
 
-        with open(f'{locations.json_path}/{CIK}.json', 'wb') as f:          #Store Json at download path
+        with open(f'{settings.json_path}/{CIK}.json', 'wb') as f:          #Store Json at download path
             f.write(response.content)
 
 def longCIK(CIK):                                                           #Ensure CIK number has 10 digits 
@@ -32,16 +32,16 @@ def get_SP500():
     first_table = payload[0]        #Current SP500
     second_table = payload[1]       #Changes in SP500
     first_table['CIK']= first_table['CIK'].apply(longCIK)
-    if path.exists(locations.csv_path) == False:
-        makedirs(locations.csv_path,  exist_ok=True)
-    first_table.to_csv(locations.csv_path+'/SP500companies.csv', sep=";")                                     #Save to csv file
+    if path.exists(settings.csv_path) == False:
+        makedirs(settings.csv_path,  exist_ok=True)
+    first_table.to_csv(settings.csv_path+'/SP500companies.csv', sep=";")                                     #Save to csv file
     return first_table
 
 if __name__ == '__main__':
-    if path.exists(locations.csv_path+'/SP500companies.csv'):                                         #Check if a list of SP500 Companies already exists
-        df_SP=pd.read_csv(locations.csv_path+'/SP500companies.csv', sep=";")                          #Read existing file
+    if path.exists(settings.csv_path+'/SP500companies.csv'):                                         #Check if a list of SP500 Companies already exists
+        df_SP=pd.read_csv(settings.csv_path+'/SP500companies.csv', sep=";")                          #Read existing file
     else:
-        makedirs(locations.json_path) 
+        makedirs(settings.json_path) 
         df_SP= get_SP500()                                                      #create new file
 
     for i in df_SP['CIK']:                                                      #Downloading SEC archive JSON for all CIK
