@@ -13,9 +13,11 @@ end_date= "2021-10-01"
 event_start= -1
 event_end = 2
 
-input_path= r'C:/Users/janro/Uni/SEC2/input'''
+input_path= r'C:/Users/janro/Uni/SEC2/input'
 
+'''
 
+'''
 json_path= r"C:/Users/janro/Bachelorarbeit/JSONs"
 tenk_path= r"C:/Users/janro/Bachelorarbeit/filings"
 csv_path= r"C:/Users/janro/Bachelorarbeit/output"
@@ -31,3 +33,20 @@ event_start= -1
 event_end = 3
 
 input_path= r'C:/Users/janro/Bachelorarbeit/input'
+'''
+
+json_path= r"D:/Bachelorarbeit/JSONs"
+tenk_path= r"D:/Bachelorarbeit/filings"
+csv_path= r"D:/Bachelorarbeit/output"
+
+###################
+
+start_date= "2000-01-01"
+end_date= "2021-10-01"
+
+###################
+
+event_start= -1
+event_end = 3
+
+input_path= r'D:/Bachelorarbeit/input'

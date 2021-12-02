@@ -25,16 +25,19 @@ def get_prices(df_ticker, hist):
         except KeyError:
             print(hist)
             index1=-1
-        if index1>0  and index >0:
-            print(index)
-            prices_stock= hist.iloc[index+settings.event_start: index + settings.event_end]
-            prices_spy = SPY_df.iloc[index1+settings.event_start:index1+settings.event_end]
-            for i in range(0,settings.event_end-settings.event_start):
-                df_ticker['s'+str(i)]=prices_stock['Close'][i]
-                df_ticker['i'+str(i)]=prices_spy['Close'][i]
-            return df_ticker
-        else:
-            return df_ticker
+        try:
+            if index1>0  and index >0:
+                print(index)
+                prices_stock= hist.iloc[index+settings.event_start: index + settings.event_end]
+                prices_spy = SPY_df.iloc[index1+settings.event_start:index1+settings.event_end]
+                for i in range(0,settings.event_end-settings.event_start):
+                    df_ticker['s'+str(i)]=prices_stock['Close'][i]
+                    df_ticker['i'+str(i)]=prices_spy['Close'][i]
+                return df_ticker
+            else:
+                return df_ticker
+        except:
+            pass
 
 if __name__ == '__main__':
     get_spy_data()
