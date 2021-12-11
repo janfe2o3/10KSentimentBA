@@ -1,43 +1,11 @@
-'''##################
-json_path= r"C:/Users/janro/Uni/SEC2/JSONs"
-tenk_path= r"C:/Users/janro/Uni/SEC2/filings"
-csv_path= r"C:/Users/janro/Uni/SEC2/output"
-
-###################
-
-start_date= "2000-01-01"
-end_date= "2021-10-01"
-
-###################
-
-event_start= -1
-event_end = 2
-
-input_path= r'C:/Users/janro/Uni/SEC2/input'
+'''
+Set paths for all python files at one place
 
 '''
 
-'''
-json_path= r"C:/Users/janro/Bachelorarbeit/JSONs"
-tenk_path= r"C:/Users/janro/Bachelorarbeit/filings"
-csv_path= r"C:/Users/janro/Bachelorarbeit/output"
-
-###################
-
-start_date= "2000-01-01"
-end_date= "2021-10-01"
-
-###################
-
-event_start= -1
-event_end = 3
-
-input_path= r'C:/Users/janro/Bachelorarbeit/input'
-'''
-
-json_path= r"D:/Bachelorarbeit/JSONs"
-tenk_path= r"D:/Bachelorarbeit/filings"
-csv_path= r"D:/Bachelorarbeit/output"
+json_path= r"E:/Bachelorarbeit/JSONs"           #Path for CIK json files
+tenk_path= r"E:/Bachelorarbeit/filings"         #Path for raw 10K filings and 10K token files
+csv_path= r"E:/Bachelorarbeit/output"           #Path for excel/csv output files (there will be one result file after every script)
 
 ###################
 
