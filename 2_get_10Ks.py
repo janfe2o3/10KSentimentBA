@@ -5,9 +5,13 @@ import os
 from pathlib import Path
 from requests.models import HTTPError
 import settings
-from get_cik_jsons import longCIK
+cik = __import__('1_get_cik_jsons')
 
-"""This script downloads all 10ks from the submission jsons and saves the result in download_report.csv"""
+"""
+Part 2
+This file downloads all 10ks from the submission jsons and saves the result in download_report.csv
+
+"""
 
 heads = {
          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36',
@@ -73,7 +77,7 @@ def get_filings(path):
         name=data['name']
     except:
         name=-1
-    CIK= longCIK(data['cik'])
+    CIK= cik.longCIK(data['cik'])
     df = pd.DataFrame.from_dict(data['filings']['recent'])          #creating Dataframe for company
 
     df= df.loc[df['form'] == "10-K"]                                #Filtering for all 10K entries
