@@ -22,8 +22,8 @@ heads = {
 def get_files():
     paths = []
     root = settings.json_path  # Setting download path as root folder to search in
-    for path, subdirs, files in os.walk(
-            root):  # Iterating over all files in root
+    for path, subdirs, files in os.walk(root):  
+        # Iterating over all files in root
         for name in files:
             if name.endswith('.json'):
                 # If file is json file add filepath to list
