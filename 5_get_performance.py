@@ -10,7 +10,7 @@ This file calculates the abnormal return for all 10K filings
 
 
 def get_spy_data():  # Download historic SP500 data
-    spy = yf.Ticker("SPXEW")
+    spy = yf.Ticker("SPXEW") #For some reason the SP500 Equal Weight is sometimes not avialable
     start = settings.start_date
     end = settings.end_date
     spy_hist = spy.history(start=start, end=end, interval='1d', progress=True)
@@ -90,8 +90,7 @@ if __name__ == '__main__':
             str(i)]) - 1) - ((final_df['i' + str(i + 1)] / final_df['i' + str(i)]) - 1)
         final_df['abnormal_return'] = final_df['abnormal_return'] + \
             final_df['abnormal_return' + str(i)]
-        final_df = final_df.drop(
-            ['abnormal_return' + str(i), 's' + str(i), 'i' + str(i)], axis=1)  # Drop
+        final_df = final_df.drop( [ 's' + str(i), 'i' + str(i)], axis=1)  # Drop
     final_df = final_df.dropna(subset=['abnormal_return'])
     final_df = final_df.drop(['act',
                               'primaryDocDescription',

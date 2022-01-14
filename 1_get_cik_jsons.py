@@ -9,7 +9,6 @@ This file gets a list of all current SP500 companies and downloads the submissio
 
 """
 
-
 heads = {
     '''User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)
      AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36''',
@@ -37,7 +36,6 @@ def get_SP500():
     payload = pd.read_html(
         'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')
     first_table = payload[0]  # Current SP500
-    second_table = payload[1]  # Changes in SP500
     first_table['CIK'] = first_table['CIK'].apply(longCIK)
     if path.exists(settings.csv_path) == False:
         makedirs(settings.csv_path, exist_ok=True)
