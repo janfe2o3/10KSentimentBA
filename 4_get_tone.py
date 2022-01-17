@@ -18,8 +18,6 @@ This is a modified version of Generic_Parser.py from https://sraf.nd.edu/textual
 TARGET_FILES = settings.tenk_path + '/*.*'
 # User defined file pointer to LM dictionary
 MASTER_DICTIONARY_FILE = '/LoughranMcDonald_MasterDictionary_2020.csv'
-# User defined output file
-OUTPUT_FILE = settings.csv_path + '/Parser.csv'
 # Setup output
 OUTPUT_FIELDS = [
     'token',
