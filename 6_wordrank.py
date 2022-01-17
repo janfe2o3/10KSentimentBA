@@ -25,7 +25,7 @@ stopwords = ['ME', 'MY', 'MYSELF', 'WE', 'OUR', 'OURS', 'OURSELVES', 'YOU', 'YOU
 MASTER_DICTIONARY_FILE = 'LoughranMcDonald_MasterDictionary_2020.csv'
 lm_dictionary = LM.load_masterdictionary(
     MASTER_DICTIONARY_FILE, print_flag=True)
-df = pd.read_excel(settings.csv_path + '/data.xlsx', index_col=0)
+df = pd.read_excel(settings.csv_path + '/return_result.xlsx', index_col=0)
 
 counter_dict = {}
 counter = 0
