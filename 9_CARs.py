@@ -19,7 +19,7 @@ def get_prices(df_ticker, hist):
         print('not found')
     try:
         if index1 > 0 and index > 0:
-            prices_stock = hist.iloc[index +
+            prices_stock = hist.iloc[index +                    #slice event window from df
                                      settings.event_start_extended: index +
                                      settings.event_end_extended]
             prices_spy = SPY_df.iloc[index1 +
